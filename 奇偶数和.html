@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   m: <input type="text" id="m">
+   n: <input type="text" id="n">
+   <button>计算</button>
+   <div></div>
+</body>
+<script>
+    //输出m-n之间所有偶数和 奇数和 以及奇数个数 偶数个数
+    // m和n用户自己输入 要求m<n 
+    var  m = document.querySelector('#m')
+    var  n = document.querySelector('#n')
+    var btn = document.querySelector('button')
+   btn.addEventListener('click',function(){
+    if(parseInt(m.value)>parseInt(n.value)){
+        document.querySelector('div').innerText = '请重新输入，要求 m<n'
+        m =''
+        n=''
+        return false
+    }else{
+        
+        var sum = 0
+        var sum2 = 0
+        var cc = 0
+        var bb = 0
+        for(let i = parseInt(m.value) ; i<=parseInt(n.value);i++){
+            if(i%2 === 0){
+                sum = sum+=i
+                cc++
+            }else{
+                sum2 = sum2+=i
+                bb++
+            }
+        }
+        document.querySelector('div').innerText = '偶数和='+sum + ',偶数个数:'+cc
+        +',奇数和='+sum2+ '奇数个数:' +bb
+        sum = 0,sum2 = 0,cc = 0,bb = 0
+    }
+
+   })
+</script>
+</html>
